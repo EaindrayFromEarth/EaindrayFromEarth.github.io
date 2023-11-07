@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <!-- Include the style.css file -->
+    <script src="main.js"></script> 
+    <title>Your Portfolio</title>
+</head>
+<style>
+/* Define a class for the trail */
+.trail-cursor {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #c6bfbf, transparent); /* Adjust the colors */
+    pointer-events: none; /* Prevent cursor click events on the trail */
+    transform-origin: center;
+    animation: trail 0.5s ease-out;
+}
+
+/* Apply animation to the trail effect */
+@keyframes trail {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+}
+
+.coffee-cursor {
+    cursor: url('src/coffee1.png') 16 16, auto;
+    z-index: 2;
+}
+
+</style>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Java Developer</h1>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="photo-frame">
+                    <img src="src\myPhoto.jpg" alt="Client's Photo">
+                </div>
+            </div>
+            <div class="hero-right">
+                <h1>Hi,there!</h1>
+                    <h1>  Welcome to My Portfolio</h1>
+                <p>Eaindray</p>
+                <p>Java Developer</p>
+                <div class="social-icons">
+                    <a href="#"><img src="src\facebook-logo.png" alt="Facebook"></a>
+                    <a href="https://github.com/EaindrayFromEarth"><img src="src\github-logo.png" alt="GitHub"></a>
+                </div>
+                <a href="#portfolio" class="see-my-work">See My Work</a>
+            </div>
+        </div>
+    </header>
+    
+    
+        
+    <div class="trail-cursor"></div>
+
+    
+
+
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>Welcome to my portfolio! I'm a passionate Java developer with a strong background in software development. I enjoy crafting high-quality applications and solving complex problems. With a keen eye for detail and a commitment to excellence, I'm dedicated to delivering top-notch solutions to clients.</p>
+            </div>
+        </div>
+    </section>
+    <div id="logo-slider" class="section">
+        <!-- Logo slider content -->
+        <div class="logo-slider">
+            <div class="slider-left">
+                <img src="src/bootstrap.png" alt="Bootstrap Logo">
+                <img src="src/pngaaa.com-2459546.png" alt="Spring Logo">
+                <img src="src/mysql.png" alt="MySQL Logo">
+                <img src="src\pngaaa.com-2459503.png" alt="Node.js Logo">
+                <!-- Add more backend logos here -->
+            </div>
+            <div class="slider-right">
+                <img src="src/html5.png" alt="HTML Logo">
+                <img src="src/css3.png" alt="CSS Logo">
+                <img src="src/javascript.png" alt="JavaScript Logo">
+                <img src="src/react.png" alt="React Logo">
+                <!-- Add more frontend logos here -->
+            </div>
+        </div>
+    </div>
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>Welcome to my portfolio! I'm a passionate Java developer with a strong background in software development. I enjoy crafting high-quality applications and solving complex problems. With a keen eye for detail and a commitment to excellence, I'm dedicated to delivering top-notch solutions to clients.</p>
+    
+                <!-- Resume/CV Link -->
+                <a href="link_to_resumecv.pdf" target="_blank" download class="resume-link">Download Resume</a>
+    
+                <!-- Personal Touch -->
+                <div class="personal-touch">
+                    <h3>Personal Touch</h3>
+                    <p>When I'm not coding, I'm an avid rock climber and have scaled some of the tallest peaks in the world. I believe that the problem-solving skills I've developed in climbing parallel those I apply in my software development projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2>Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="src\0-02-06-9566abe42e9a566286e7c7960697bb33c6404da3a88f8047af2f9f57d8bb9188_6d614989e86dc0e4.jpg" alt="Project 1">
+                        <div class="overlay">
+                            <a href="#">View Details</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-details">
+                        <h3>Project 1</h3>
+                        <p>Project description goes here. Explain the technologies used and the problem solved.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="src\0-02-06-9566abe42e9a566286e7c7960697bb33c6404da3a88f8047af2f9f57d8bb9188_6d614989e86dc0e4.jpg" alt="Project 2">
+                        <div class="overlay">
+                            <a href="#">View Details</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-details">
+                        <h3>Project 2</h3>
+                        <p>Project description goes here. Explain the technologies used and the problem solved.</p>
+                    </div>
+                </div>
+                <!-- Add more portfolio items as needed -->
+            </div>
+        </div>
+    </section>
+    
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2>Portfolio</h2>
+            <div class="portfolio-grid">
+                <!-- Portfolio items with improved styles -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="project1.jpg" alt="Project 1">
+                        <div class="overlay">
+                            <a href="#">View Details</a>
+                        </div>
+                    </div>
+                    <h3>Project 1</h3>
+                    <p>Project description goes here. Explain the technologies used and the problem solved.</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="project2.jpg" alt="Project 2">
+                        <div class="overlay">
+                            <a href="#">View Details</a>
+                        </div>
+                    </div>
+                    <h3>Project 2</h3>
+                    <p>Project description goes here. Explain the technologies used and the problem solved.</p>
+                </div>
+                <!-- Add more portfolio items as needed -->
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Contact Me</h2>
+                <p>If you're interested in collaborating or have any questions, feel free to get in touch with me. I'm always open to new opportunities and challenges.</p>
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+         
+  
+    <script>
+        // Add an event listener to the "Contact Me" section
+        const contactSection = document.getElementById('contact');
+      
+        contactSection.addEventListener('mouseenter', () => {
+          // Add the "coffee-cursor" class when the user hovers over the section
+          document.body.classList.add('coffee-cursor');
+        });
+      
+        contactSection.addEventListener('mouseleave', () => {
+          // Remove the "coffee-cursor" class when the user leaves the section
+          document.body.classList.remove('coffee-cursor');
+        });
+      </script>
+      
+
+
+    
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const cursor = document.querySelector(".trail-cursor");
+    
+    document.addEventListener("mousemove", (e) => {
+        const trail = document.createElement("div");
+        trail.className = "trail-cursor";
+        document.body.appendChild(trail);
+        
+        const x = e.clientX;
+        const y = e.clientY;
+        trail.style.left = x + "px";
+        trail.style.top = y + "px";
+        
+        // Remove the trail element after the animation
+        trail.addEventListener("animationend", () => {
+            trail.remove();
+        });
+    });
+
+    document.addEventListener("mouseenter", (e) => {
+        cursor.style.display = "block";
+    });
+
+    document.addEventListener("mouseleave", (e) => {
+        cursor.style.display = "none";
+    });
+});
+
+
+    </script>
+    <script>
+        // Stop logo animations when the user doesn't scroll
+        let animationStopped = false;
+        const logos = document.querySelectorAll('.logo-slider img');
+
+        window.addEventListener('scroll', () => {
+            if (!animationStopped) {
+                const scrollPosition = window.scrollY;
+                if (scrollPosition > 400) {
+                    logos.forEach(logo => logo.style.animation = 'none');
+                    animationStopped = true;
+                }
+            }
+        });
+    </script>
+    <!-- Add this script to your HTML file -->
+<script>
+const trailCursor = document.querySelector('.trail-cursor');
+
+document.addEventListener('mousemove', (e) => {
+    trailCursor.style.left = e.clientX + 'px';
+    trailCursor.style.top = e.clientY + 'px';
+    trailCursor.style.display = 'block'; // Show the cursor trail
+});
+
+</script>
+
+</body>
+</html>
+
+

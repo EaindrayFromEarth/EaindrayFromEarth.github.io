@@ -1,0 +1,524 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2; /* Set a background color for the entire page */
+}
+
+.hero {
+    position: relative;
+    background-color: #3498db; /* Set a background color for the hero header */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+
+
+.hero h1 {
+font-size: 2.5rem;
+margin-bottom: 10px;
+z-index: 2;
+}
+
+.hero p {
+font-size: 1.5rem;
+margin-bottom: 20px;
+z-index: 2;
+}
+
+.portfolio {
+    background: #fff; /* Set a background color for the portfolio section */
+    padding: 50px 0;
+}
+/* Add this to your existing CSS or create a new CSS file */
+
+.navbar {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+background: transparent;
+transition: background 0.3s;
+z-index: 1000;
+}
+
+.navbar.active {
+background: #582c86; /* Set the background color when scrolling */
+}
+
+.container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 0;
+}
+
+.logo {
+font-size: 1.5rem;
+color: #fff;
+}
+
+.nav-links {
+list-style: none;
+display: flex;
+margin: 0;
+padding: 0;
+}
+
+.nav-links li {
+margin: 0 20px;
+}
+
+.nav-links a {
+text-decoration: none;
+color: #fff;
+}
+
+/* Hamburger Menu for Small Screens */
+@media (max-width: 768px) {
+.navbar.active .nav-links {
+    display: none; /* Hide the navigation links */
+    position: absolute;
+    top: 60px; /* Adjust as needed based on your design */
+    right: 0;
+    background: #ab65f5; /* Background color for the dropdown menu */
+    width: 80%;
+    flex-direction: column;
+    text-align: center;
+}
+
+.navbar.active .nav-links.show {
+    display: flex; /* Show the navigation links on click */
+}
+
+.nav-links li {
+    margin: 15px 0;
+}
+
+.navbar.active .nav-links a {
+    color: #fff;
+}
+
+.nav-toggle {
+    display: block; /* Show the hamburger menu icon */
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.5rem;
+}
+}
+/* Add a class to the hero section for spacing */
+.hero {
+padding-top: 100px; /* Adjust as needed */
+}
+
+/* Add styles for the hero section */
+.hero {
+position: relative;
+background-color: #582c86;
+height: 100vh;
+display: flex;
+align-items: center;
+color: #fff;
+background: linear-gradient(45deg, #92226c, #ab65f5, #6858f5, #392e97, #221d53);
+background-size: 600% 100%;
+animation: gradientAnimation 10s ease;
+z-index: 1
+}
+
+/* Style the client's photo */
+/* Style the client's photo */
+.hero-left {
+position: absolute;
+left: 10%; /* Adjust the left position as needed */
+top: 50%;
+transform: translateY(-50%);
+z-index: 2; /* Place the client's photo in front */
+}
+
+.photo-frame {
+width: 250px; /* Adjust the frame size */
+height: 250px; /* Adjust the frame size */
+border: 5px solid #fff; /* Add a white border */
+border-radius: 50%; /* Create a circular frame */
+overflow: hidden; /* Clip the image to fit the frame */
+}
+
+.photo-frame img {
+width: 100%;
+height: 100%;
+object-fit: cover; /* Maintain photo aspect ratio */
+border-radius: 50%; /* Make the photo circular */
+transition: transform 0.3s; /* Add a hover effect */
+}
+
+.photo-frame:hover img {
+transform: scale(1.1); /* Zoom in on hover */
+}
+
+
+/* Style the hero content on the right */
+.hero-right {
+text-align: left; /* Adjust the alignment as needed */
+position: relative;
+
+z-index: 2; /* Place the content in front */
+padding-left: 200px; /* Create space for the photo */
+}
+
+/* Social icons and "See My Work" button */
+.social-icons, .see-my-work {
+margin-top: 10px; /* Adjust the margin as needed */
+z-index: 2;
+
+}
+
+.social-icon {
+width: 30px; /* Set the desired width for the social icons */
+height: 30px; /* Set the desired height for the social icons */
+margin: 0 10px; /* Adjust the margin between icons */
+transition: transform 0.3s ease; /* Add a transition effect */
+z-index: 2;
+}
+
+.social-icon:hover {
+transform: scale(1.2); /* Add a scaling effect on hover */
+z-index: 2;
+}
+.social-icons a {
+margin: 0 15px; /* Adjust the spacing between icons */
+text-decoration: none;
+color: #582c86; /* Color of the icons */
+font-size: 2rem; /* Adjust the icon size */
+}
+
+.social-icons a img {
+max-width: 40px; /* Adjust the size of the icons */
+}
+
+/* See My Work button */
+.see-my-work {
+display: inline-block;
+background-color: #d3db34;
+color: #fff;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 5px;
+font-size: 1.2rem;
+transition: background-color 0.3s;
+z-index: 2; /* Place the button in front */
+}
+
+.see-my-work:hover {
+background-color: #2980b9;
+}
+
+/* Gradient animation */
+.hero::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(45deg, #92226c, #ab65f5, #6858f5, #392e97, #221d53);
+background-size: 600% 100%;
+animation: gradientAnimation 10s ease;
+z-index: 1; /* Place the gradient animation behind the content */
+}
+
+/* Add this CSS to your existing stylesheet or create a new one */
+
+/* General section styles */
+.section {
+padding: 80px 0;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+}
+
+h2 {
+font-size: 2rem;
+margin-bottom: 20px;
+color: #3498db;
+}
+
+/* About Section */
+.about-content {
+text-align: center;
+}
+
+.about-content p {
+font-size: 1.2rem;
+line-height: 1.6;
+margin-bottom: 30px;
+}
+
+.tech-stack {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 30px;
+}
+
+.tech-stack img {
+max-width: 60px;
+margin: 0 15px;
+}
+
+/* Portfolio Section */
+/* Add these styles to your existing CSS or create a new CSS file */
+
+/* Add these styles to your existing CSS or create a new CSS file */
+
+.portfolio-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 20px;
+}
+
+.portfolio-item {
+background: #fff;
+border: 1px solid #e6e6e6;
+border-radius: 10px;
+overflow: hidden;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+transform: scale(1.05);
+}
+
+.portfolio-image {
+position: relative;
+overflow: hidden;
+}
+
+.portfolio-image img {
+max-width: 100%;
+border: 0;
+}
+
+.overlay {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(52, 152, 219, 0.7); /* Add a semi-transparent overlay on hover */
+display: flex;
+justify-content: center;
+align-items: center;
+opacity: 0;
+transition: opacity 0.3s;
+}
+
+.portfolio-item:hover .overlay {
+opacity: 1;
+}
+
+.overlay a {
+color: #fff;
+text-decoration: none;
+padding: 10px 20px;
+background-color: #3498db;
+border-radius: 5px;
+transition: background-color 0.3s;
+}
+
+.overlay a:hover {
+background-color: #2980b9;
+}
+
+.portfolio-details h3 {
+font-size: 1.5rem;
+margin: 10px 0;
+color: #3498db;
+}
+
+.portfolio-details p {
+font-size: 1rem;
+color: #777;
+line-height: 1.6;
+}
+
+
+/* Contact Section */
+.contact-content {
+text-align: center;
+}
+
+.contact-content p {
+font-size: 1.2rem;
+line-height: 1.6;
+margin-bottom: 30px;
+}
+
+.contact-form input, .contact-form textarea {
+width: 100%;
+padding: 10px;
+margin: 10px 0;
+border: 1px solid #e6e6e6;
+border-radius: 5px;
+}
+
+.contact-form button {
+background-color: #3498db;
+color: #fff;
+border: none;
+padding: 10px 20px;
+cursor: pointer;
+}
+
+.contact-form button:hover {
+background-color: #582c86;
+}
+/* Logo slider styles */
+
+/* Your existing CSS code */
+
+/* Logo slider styles */
+.logo-slider {
+    display: flex;
+    flex-direction: column; /* Change to a column layout */
+    justify-content: center;
+    align-items: center;
+    background-color: #0c0c0c;
+    padding: 20px 0;
+    position: relative;
+}
+
+.slider-left,
+.slider-right {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Ensure each row spans the full width */
+    justify-content: space-between; /* Distribute the logos evenly */
+}
+
+.slider-left {
+    animation: slideLeft 6s linear infinite; /* Slide the left row to the left */
+}
+
+.slider-right {
+    animation: slideRight 6s linear infinite; /* Slide the right row to the right */
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.logo-slider img {
+    margin: 10px;
+    width: 80px;
+}
+
+/* Add these styles to your existing CSS or create a new CSS file */
+.resume-link {
+display: inline-block;
+background-color: #3498db;
+color: #fff;
+padding: 10px 20px;
+text-decoration: none;
+border-radius: 5px;
+margin-top: 20px;
+}
+
+.resume-link:hover {
+background-color: #582c86;
+}
+
+.personal-touch {
+background-color: #f9f9f9;
+padding: 20px;
+border-radius: 5px;
+margin-top: 30px;
+}
+
+.personal-touch h3 {
+font-size: 1.5rem;
+color: #3498db;
+margin-top: 0;
+}
+
+.personal-touch p {
+font-size: 1.2rem;
+line-height: 1.6;
+}
+
+/* Define a class for the trail */
+.trail-cursor {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #c9c0c0, transparent); /* Adjust the colors */
+    pointer-events: none; /* Prevent cursor click events on the trail */
+    transform-origin: center;
+    animation: trail 0.5s ease-out;
+}
+
+/* Apply animation to the trail effect */
+@keyframes trail {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+}
+
+.coffee-cursor {
+    cursor: url('src/Sonya-Swarm-Coffee.64.png') 5 5, auto;
+    z-index: 2;
+}
+
+button {
+background-color: #3498db;
+color: #fff;
+border: none;
+padding: 10px 20px;
+}
+
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+    /* Add a media query to stop animations on smaller screens */
+    @media (max-width: 768px) {
+    .slider-left, .slider-right {
+        animation: none;
+    }
+    .slider-right {
+        transform: translateX(100%);
+    }
+}
