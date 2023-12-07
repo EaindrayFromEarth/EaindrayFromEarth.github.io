@@ -4,39 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css"> <!-- Include the style.css file -->
-    <script src="main.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="animate.min.css">
+    <script src="main.js"></script>
     <title>Your Portfolio</title>
+
 </head>
 <style>
-/* Define a class for the trail */
-.trail-cursor {
-    position: fixed;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #c6bfbf, transparent); /* Adjust the colors */
-    pointer-events: none; /* Prevent cursor click events on the trail */
-    transform-origin: center;
-    animation: trail 0.5s ease-out;
-}
-
-/* Apply animation to the trail effect */
-@keyframes trail {
-    0% {
-        transform: scale(1);
-        opacity: 0.8;
+    /* Define a class for the trail */
+    .trail-cursor {
+        position: fixed;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #c6bfbf, transparent); /* Adjust the colors */
+        pointer-events: none; /* Prevent cursor click events on the trail */
+        transform-origin: center;
+        animation: trail 0.5s ease-out;
     }
-    100% {
-        transform: scale(0.3);
-        opacity: 0;
+
+    /* Apply animation to the trail effect */
+    @keyframes trail {
+        0% {
+            transform: scale(1);
+            opacity: 0.8;
+        }
+
+        100% {
+            transform: scale(0.3);
+            opacity: 0;
+        }
     }
-}
 
-.coffee-cursor {
-    cursor: url('src/coffee1.png') 16 16, auto;
-    z-index: 2;
-}
-
+    .coffee-cursor {
+        cursor: url('src/coffee1.png') 16 16, auto;
+        z-index: 2;
+    }
 </style>
 <body>
     <nav class="navbar">
@@ -58,7 +61,7 @@
             </div>
             <div class="hero-right">
                 <h1>Hi,there!</h1>
-                    <h1>  Welcome to My Portfolio</h1>
+                <h1>  Welcome to My Portfolio</h1>
                 <p>Eaindray</p>
                 <p>Java Developer</p>
                 <div class="social-icons">
@@ -69,22 +72,15 @@
             </div>
         </div>
     </header>
-    
-    
-        
+
+
+
     <div class="trail-cursor"></div>
 
-    
 
 
-    <section id="about" class="section">
-        <div class="container">
-            <div class="about-content">
-                <h2>About Me</h2>
-                <p>Welcome to my portfolio! I'm a passionate Java developer with a strong background in software development. I enjoy crafting high-quality applications and solving complex problems. With a keen eye for detail and a commitment to excellence, I'm dedicated to delivering top-notch solutions to clients.</p>
-            </div>
-        </div>
-    </section>
+
+
     <div id="logo-slider" class="section">
         <!-- Logo slider content -->
         <div class="logo-slider">
@@ -104,87 +100,136 @@
             </div>
         </div>
     </div>
-    <section id="about" class="section">
+
+
+    <section class="about-me" id="about-me">
+        <div class="about-me-container">
+            <h2>About Me</h2>
+            <p>Been Learning programming since 2019 with a strong interest in software development, further developing my programming skills. I am a dedicated and fast learner, ready to contribute to a dynamic team in a software company. Proficient in multiple programming languages, software development methodologies, and database management systems.</p>
+            <ul>
+
+                <li>I love Learning new practical Skills and Exploring new Things!</li>
+                <li>Started teaching myself programming Since 8th Grade</li>
+                <li>I can make </li>
+                <li>I can make </li>
+                <li>I can make </li>
+                <li>I can make </li>
+            </ul>
+            <p>In my free time, </p>
+            <a href="path/to/your/cv.pdf" download="Your_CV_Name.pdf" class="download-btn">Download My CV</a>
+        </div>
+    </section>
+    <!-- 5QC!Nf6f8B-dqTi -->
+
+    <section class="skills">
         <div class="container">
-            <div class="about-content">
-                <h2>About Me</h2>
-                <p>Welcome to my portfolio! I'm a passionate Java developer with a strong background in software development. I enjoy crafting high-quality applications and solving complex problems. With a keen eye for detail and a commitment to excellence, I'm dedicated to delivering top-notch solutions to clients.</p>
-    
-                <!-- Resume/CV Link -->
-                <a href="link_to_resumecv.pdf" target="_blank" download class="resume-link">Download Resume</a>
-    
-                <!-- Personal Touch -->
-                <div class="personal-touch">
-                    <h3>Personal Touch</h3>
-                    <p>When I'm not coding, I'm an avid rock climber and have scaled some of the tallest peaks in the world. I believe that the problem-solving skills I've developed in climbing parallel those I apply in my software development projects.</p>
-                </div>
+            <div class="skills-block" id="block1">
+                <h3>C#</h3>
+                <ul>
+
+                    <li>Razor</li>
+                    <li>Ado.Net</li>
+                    <li>Dapper</li>
+                    <li>Entity Framework Core</li>
+                    <li>Linq</li>
+                    <li>ASP.NET 7</li>
+                </ul>
+            </div>
+
+            <div class="skills-block" id="block2">
+                <h3>WEB Technologies</h3>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>Ajax</li>
+                    <li>jQuery</li>
+                </ul>
+            </div>
+
+            <div class="skills-block" id="block3">
+                <h3>Java Technologies</h3>
+                <ul>
+                    <li>Thymeleaf</li>
+                    <li>JSP / Servlets</li>
+                    <li>Spring MVC</li>
+                    <li>Hibernate</li>
+                    <li>Spring Boot</li>
+                    <li>Spring Security</li>
+                    <li>Spring Data JPA</li>
+                </ul>
+            </div>
+
+            <div class="skills-block" id="block4">
+                <h3>Database</h3>
+                <ul>
+                    <li>Git</li>
+                    <li>GitHub</li>
+                    <li>Junit</li>
+                    <li>MySQL</li>
+                    <li>Oracle</li>
+                    <li>MS SQL</li>
+                    <li>OOP</li>
+                    <li>ORM</li>
+                    <li>Maven</li>
+                    <li>JDBC</li>
+                </ul>
             </div>
         </div>
     </section>
-    
+
+
+    <h2 text-align: center;>My Projects</h2>
     <section id="portfolio" class="section">
         <div class="container">
-            <h2>Portfolio</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="src\0-02-06-9566abe42e9a566286e7c7960697bb33c6404da3a88f8047af2f9f57d8bb9188_6d614989e86dc0e4.jpg" alt="Project 1">
-                        <div class="overlay">
-                            <a href="#">View Details</a>
-                        </div>
-                    </div>
-                    <div class="portfolio-details">
-                        <h3>Project 1</h3>
-                        <p>Project description goes here. Explain the technologies used and the problem solved.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="src\0-02-06-9566abe42e9a566286e7c7960697bb33c6404da3a88f8047af2f9f57d8bb9188_6d614989e86dc0e4.jpg" alt="Project 2">
-                        <div class="overlay">
-                            <a href="#">View Details</a>
-                        </div>
-                    </div>
-                    <div class="portfolio-details">
-                        <h3>Project 2</h3>
-                        <p>Project description goes here. Explain the technologies used and the problem solved.</p>
-                    </div>
-                </div>
-                <!-- Add more portfolio items as needed -->
-            </div>
-        </div>
-    </section>
-    
-    <section id="portfolio" class="section">
-        <div class="container">
-            <h2>Portfolio</h2>
+
             <div class="portfolio-grid">
                 <!-- Portfolio items with improved styles -->
                 <div class="portfolio-item">
                     <div class="portfolio-image">
-                        <img src="project1.jpg" alt="Project 1">
+                        <img src="src/expense tracker app.jpeg" alt="Project 1">
                         <div class="overlay">
-                            <a href="#">View Details</a>
+                            <a href="https://github.com/EaindrayFromEarth/My_First_Finance_App">View Details</a>
                         </div>
                     </div>
-                    <h3>Project 1</h3>
-                    <p>Project description goes here. Explain the technologies used and the problem solved.</p>
+                    <h3>Monthly Expense Tracker</h3>
+                    <p>Monthly Expense Tracker (made in 3 days) (mini-project)</p>
+                    <p><b>Technologies Used</b>
+                    <p>  .Net 7, Mvc pattern, C#,</p>
+
+                    <p>  Entity Framework Core</p>
+
+                    <p> HTML, CSS ,JavaScript, Bootstrap</p>
                 </div>
                 <div class="portfolio-item">
                     <div class="portfolio-image">
                         <img src="project2.jpg" alt="Project 2">
                         <div class="overlay">
-                            <a href="#">View Details</a>
+                            <a href="https://github.com/EaindrayFromEarth/EcoHelp_Donation_for_Climate_Change_SpringMVC-School-Project">View Details</a>
                         </div>
                     </div>
                     <h3>Project 2</h3>
                     <p>Project description goes here. Explain the technologies used and the problem solved.</p>
                 </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="src\Screenshot (6).png" alt="Project 2">
+                        <div class="overlay">
+                            <a href="https://github.com/EaindrayFromEarth/OpenCV-Rainbow-Drawer">View Details</a>
+                        </div>
+                    </div>
+                    <h3>Rainbow Drawing with OpenCV</h3>
+                    <p>
+                        About
+                        Rainbow Drawing with OpenCV project in bullet points: Python application for creating rainbow drawings. Uses your webcam to detect fingertip movement. Draw colorful rainbow lines side by side. Switch between drawing and erasing modes with 'e' key. Gracefully exit the application with 'q' key. Fun and interactive for creative expression.
+                    </p>
+                </div>
                 <!-- Add more portfolio items as needed -->
             </div>
         </div>
     </section>
-    
+
+
 
     <section id="contact" class="section">
         <div class="container">
@@ -202,54 +247,51 @@
             </div>
         </div>
     </section>
-         
-  
+
+
     <script>
-        // Add an event listener to the "Contact Me" section
-        const contactSection = document.getElementById('contact');
-      
-        contactSection.addEventListener('mouseenter', () => {
-          // Add the "coffee-cursor" class when the user hovers over the section
-          document.body.classList.add('coffee-cursor');
+        document.getElementById('contact').addEventListener('mouseenter', function () {
+            document.body.style.cursor = 'url("src/Sonya-Swarm-Coffee.64.png"), auto';
         });
-      
-        contactSection.addEventListener('mouseleave', () => {
-          // Remove the "coffee-cursor" class when the user leaves the section
-          document.body.classList.remove('coffee-cursor');
+
+        document.getElementById('contact').addEventListener('mouseleave', function () {
+            document.body.style.cursor = 'auto';
         });
-      </script>
-      
 
 
-    
+    </script>
+
+
+
+
     <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const cursor = document.querySelector(".trail-cursor");
-    
-    document.addEventListener("mousemove", (e) => {
-        const trail = document.createElement("div");
-        trail.className = "trail-cursor";
-        document.body.appendChild(trail);
-        
-        const x = e.clientX;
-        const y = e.clientY;
-        trail.style.left = x + "px";
-        trail.style.top = y + "px";
-        
-        // Remove the trail element after the animation
-        trail.addEventListener("animationend", () => {
-            trail.remove();
+        document.addEventListener("DOMContentLoaded", function () {
+            const cursor = document.querySelector(".trail-cursor");
+
+            document.addEventListener("mousemove", (e) => {
+                const trail = document.createElement("div");
+                trail.className = "trail-cursor";
+                document.body.appendChild(trail);
+
+                const x = e.clientX;
+                const y = e.clientY;
+                trail.style.left = x + "px";
+                trail.style.top = y + "px";
+
+                // Remove the trail element after the animation
+                trail.addEventListener("animationend", () => {
+                    trail.remove();
+                });
+            });
+
+            document.addEventListener("mouseenter", (e) => {
+                cursor.style.display = "block";
+            });
+
+            document.addEventListener("mouseleave", (e) => {
+                cursor.style.display = "none";
+            });
         });
-    });
-
-    document.addEventListener("mouseenter", (e) => {
-        cursor.style.display = "block";
-    });
-
-    document.addEventListener("mouseleave", (e) => {
-        cursor.style.display = "none";
-    });
-});
 
 
     </script>
@@ -269,16 +311,78 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     </script>
     <!-- Add this script to your HTML file -->
-<script>
-const trailCursor = document.querySelector('.trail-cursor');
+    <script>
+        const trailCursor = document.querySelector('.trail-cursor');
 
-document.addEventListener('mousemove', (e) => {
-    trailCursor.style.left = e.clientX + 'px';
-    trailCursor.style.top = e.clientY + 'px';
-    trailCursor.style.display = 'block'; // Show the cursor trail
-});
+        document.addEventListener('mousemove', (e) => {
+            trailCursor.style.left = e.clientX + 'px';
+            trailCursor.style.top = e.clientY + 'px';
+            trailCursor.style.display = 'block'; // Show the cursor trail
+        });
 
-</script>
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the about me section
+            var aboutMeSection = document.getElementById('about-me');
+
+            // Function to check if an element is in the viewport
+            function isInViewport(element) {
+                var rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            // Function to handle scroll events
+            function handleScroll() {
+                if (isInViewport(aboutMeSection)) {
+                    aboutMeSection.classList.add('show');
+                    // Remove the event listener once the section is visible
+                    window.removeEventListener('scroll', handleScroll);
+                }
+            }
+
+            // Add scroll event listener
+            window.addEventListener('scroll', handleScroll);
+
+            // Trigger scroll event on page load (in case the element is already in view)
+            handleScroll();
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var skillsBlocks = document.querySelectorAll('.skills-block');
+
+            function isInViewport(element) {
+                var rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            function handleScroll() {
+                skillsBlocks.forEach(function (block) {
+                    if (isInViewport(block)) {
+                        block.classList.add('show');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', handleScroll);
+            handleScroll();
+        });
+
+    </script>
+
+
+
 
 </body>
 </html>
