@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciFiTech Articles</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>SciFiTech Articles</h1>
+        <div id="loginSection" style="display: block;">
+            <h2>Login</h2>
+            <input type="text" id="emailInput" placeholder="Email">
+            <input type="password" id="passwordInput" placeholder="Password">
+            <button onclick="login()">Login</button>
+        </div>
+        <div id="homeSection" style="display: none;">
+            <h2>Welcome to SciFiTech!</h2>
+            <div id="articlesList"></div>
+            <div id="articleDetails" style="display: none;">
+                <h3>Article Details</h3>
+                <p id="articleContent"></p>
+                <div id="discussionSection">
+                    <h3>Discussion</h3>
+                    <ul id="discussionMessages"></ul>
+                    <input type="text" id="messageInput" placeholder="Type your message">
+                    <button onclick="sendDiscussionMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.10/signalr.min.js"></script>
+    <script>
+        const apiUrl = "https://localhost:7005/api";
+        const hubUrl = "https://localhost:7005/discussionHub";
+        let connection;
+
+        // Function to handle user login
+        function login() {
+        const email = document.getElementById("emailInput").value;
+        const password = document.getElementById("passwordInput").value;
+
+        // Make a POST request to your authentication endpoint
+        fetch(`${apiUrl}/Authentication/login`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+    })
+    .then(response => {
+        // Log the response status
+        console.log("Login response status:", response.status);
+
+        // Handle non-successful responses
+        if (!response.ok) {
+            throw new Error(`Login failed with status ${response.status}`);
+        }
+
+        return response.json();
+    })
+    .then(data => {
+        // Log the entire data object for debugging
+        console.log("Login response data:", data);
+
+        // Check the structure of the response data
+        if (data && data.AccessToken) {
+            // Log the token before storing it
+            const token = 'Bearer '+ data.AccessToken;
+            console.log("Received token:", token);
+
+            // If login is successful, set the token and show the home section
+            localStorage.setItem("token", token);
+            document.getElementById("loginSection").style.display = "none";
+            document.getElementById("homeSection").style.display = "block";
+            // Connect to SignalR hub
+            connectToHub();
+            // Fetch and display articles
+            fetchArticles();
+        } else {
+            alert("Invalid credentials or token missing");
+        }
+    })
+    .catch(error => {
+        console.error("Login failed", error);
+        alert("Login failed. Please check your credentials and try again.");
+    });
+}
+
+document.getElementById("homeSection").style.display = "block";
+            // Connect to SignalR hub
+            connectToHub();
+            // Fetch and display articles
+            fetchArticles();
+    // Function to connect to the SignalR hub
+    function connectToHub() {
+        const token = localStorage.getItem("token");
+
+        connection = new signalR.HubConnectionBuilder()
+            .withUrl(hubUrl, { accessTokenFactory: () => token })
+            .build();
+
+        connection.start().then(() => {
+            console.log("Connected to SignalR hub");
+        }).catch(error => console.error("SignalR connection failed", error));
+
+        // Configure hub event handlers here
+        connection.on("ReceiveDiscussionMessage", (userName, content) => {
+            appendDiscussionMessage(userName, content);
+        });
+    }
+
+    // Function to fetch and display articles
+    function fetchArticles() {
+        const token = localStorage.getItem("token");
+
+        // Make a GET request to your articles endpoint
+        fetch(`${apiUrl}/Articles/all`, {
+            method: "GET",
+            // headers: {
+            //     //"Authorization": `Bearer ${token}`
+            //     "Authorization": token 
+            // }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const articlesList = document.getElementById("articlesList");
+            articlesList.innerHTML = "";
+            data.Items.forEach(article => {
+                const articleElement = document.createElement("div");
+                articleElement.innerHTML = `<p>${article.Title}</p>`;
+                articleElement.addEventListener("click", () => showArticleDetails(article));
+                articlesList.appendChild(articleElement);
+            });
+        })
+        .catch(error => console.error("Failed to fetch articles", error));
+    }
+
+    // Function to display article details
+    function showArticleDetails(article) {
+        const articleContent = document.getElementById("articleContent");
+        articleContent.textContent = article.ArticleContent;
+
+        const discussionMessages = document.getElementById("discussionMessages");
+        discussionMessages.innerHTML = "";
+
+        // Join the SignalR discussion group for the selected article
+        connection.invoke("JoinArticleDiscussion", article.Id).catch(error => console.error(error));
+
+        // Fetch existing discussion messages for the selected article
+        fetch(`${apiUrl}/Articles/${article.Id}/discussions`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        })
+        .then(response => response.json())
+        .then(messages => {
+            messages.forEach(message => {
+                appendDiscussionMessage(message.UserName, message.Content);
+            });
+        })
+        .catch(error => console.error("Failed to fetch discussion messages", error));
+
+        // Show the article details section
+        document.getElementById("articleDetails").style.display = "block";
+    }
+
+    // Function to send a discussion message
+    function sendDiscussionMessage() {
+        const messageInput = document.getElementById("messageInput");
+        const content = messageInput.value;
+
+        // Send the discussion message to the SignalR hub and backend
+        connection.invoke("SendDiscussionMessage", selectedArticleId, content).catch(error => console.error(error));
+
+        // Clear the message input after sending
+        messageInput.value = "";
+    }
+
+    // Function to append a discussion message to the UI
+    function appendDiscussionMessage(userName, content) {
+        const discussionMessages = document.getElementById("discussionMessages");
+        const li = document.createElement("li");
+        li.textContent = `${userName}: ${content}`;
+        discussionMessages.appendChild(li);
+    }
+
+</script>
+</body>
+</html>

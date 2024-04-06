@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Marked in the Browser</title>
+</head>
+<body>
+  <div id="content"></div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    // Fetch content from the .NET backend API
+    fetch('/api/markdown-content')
+      .then(response => response.text())
+      .then(content => {
+        // Parse Markdown content using Marked
+        const htmlContent = marked.parse(content);
+
+        // Display the parsed HTML content
+        document.getElementById('content').innerHTML = htmlContent;
+      })
+      .catch(error => {
+        console.error('Error fetching content:', error);
+        // Handle errors gracefully, e.g., display an error message
+      });
+  </script>
+</body>
+</html>

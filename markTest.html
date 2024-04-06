@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Marked in the browser (Dark Mode)</title>
+  <style>
+    body {
+      background-color: #222; /* Dark background */
+      color: #eee; /* Light text */
+    }
+    #content {
+      background-color: #333; /* Slightly darker content background */
+      color: #6be277; /* Lighter text within content */
+      border: 1px solid #444; /* Dark border for content */
+    }
+    pre {
+      background-color: #444; /* Darker background for code blocks */
+      color: #ddd; /* Lighter text within code blocks */
+      border: 1px solid #555; /* Dark border for code blocks */
+    }
+  </style>
+</head>
+<body>
+  <div id="content"></div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    content = `
+![Alt text for the image](https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg)
+
+# Installation
+
+## Download tarball
+
+You can download the latest release tarball directly from [releases][releases].
+
+## Bower
+
+`;
+document.getElementById('content').innerHTML = marked.parse(content);
+</script>
+</body>
+</html>

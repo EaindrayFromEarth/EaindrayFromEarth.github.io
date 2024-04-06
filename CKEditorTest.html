@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CKEditor</title>
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
+</head>
+<body>
+    <div id="editor">This is some sample content.</div>
+    <button onclick="saveContent()">Save</button>
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        function saveContent() {
+            var content = CKEditor.instances.editor.getData(); // Get CKEditor content
+            fetch('/CKEditor/SaveContent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ content: content }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // Handle success, e.g., show a success message
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                // Handle error, e.g., show an error message
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <style>
+    body {
+      background-color: #222; /* Dark background */
+      color: #eee; /* Light text */
+    }
+    #sourceTA {
+      display: block;
+      background-color: #333; /* Darker textarea background */
+      color: #ddd; /* Lighter text in textarea */
+      border: 1px solid #444; /* Dark border for textarea */
+    }
+    #targetDiv {
+      border: 1px solid #444; /* Dark border for output */
+      background-color: #333; /* Darker output background */
+      width: 600px;
+      height: 400px;
+      color: #ddd; /* Lighter text in output */
+    }
+    button {
+      background-color: #444; /* Dark button background */
+      color: #ddd; /* Light button text */
+      border: 1px solid #555; /* Dark button border */
+    }
+  </style>
+</head> <body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script> <textarea id="sourceTA" rows="10" cols="82">
+    </textarea>
+  <hr style="border-color: #444;"> <button id="runBtn" onClick="run()">Convert</button>
+  <hr style="border-color: #444;"> <div id="targetDiv"></div>
+
+  <script>
+    function run() {
+      var text = document.getElementById('sourceTA').value,
+          target = document.getElementById('targetDiv'),
+          converter = new showdown.Converter(),
+          html = converter.makeHtml(text);
+
+      target.innerHTML = html;
+    }
+  </script>
+</body>
+</html>
